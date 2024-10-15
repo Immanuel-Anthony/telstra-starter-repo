@@ -2,9 +2,11 @@ package au.com.telstra.simcardactivator.Service;
 
 import au.com.telstra.simcardactivator.Entity.SimRequest;
 import au.com.telstra.simcardactivator.Entity.SimResponse;
+import au.com.telstra.simcardactivator.repo.SimRepo;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.client.RestTemplate;
 
 @Service

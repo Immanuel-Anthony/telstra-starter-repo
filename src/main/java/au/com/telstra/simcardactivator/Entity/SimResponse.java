@@ -18,4 +18,8 @@ public class SimResponse {
     public SimResponse(@JsonProperty("success") String success) {
         this.success = success;
     }
+
+    public boolean isActivated() {
+        return "true".equalsIgnoreCase(success);
+    }
 }
