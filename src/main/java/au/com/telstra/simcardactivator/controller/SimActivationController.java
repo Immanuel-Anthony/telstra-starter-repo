@@ -1,4 +1,4 @@
-package au.com.telstra.simcardactivator.Controller;
+package au.com.telstra.simcardactivator.controller;
 
 
 import au.com.telstra.simcardactivator.Entity.SimRequest;
