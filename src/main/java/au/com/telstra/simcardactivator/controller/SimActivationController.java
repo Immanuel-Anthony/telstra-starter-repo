@@ -5,8 +5,6 @@ import au.com.telstra.simcardactivator.Entity.SimRequest;
 import au.com.telstra.simcardactivator.Entity.SimResponse;
 import au.com.telstra.simcardactivator.Service.SimActivationService;
 import au.com.telstra.simcardactivator.Service.SimSaveService;
-import org.apache.coyote.Response;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -26,7 +24,7 @@ public class SimActivationController {
     }
 
     @PostMapping("/activate-sim")
-    public ResponseEntity<?> activateSim(@RequestBody SimRequest simRequest){
+    public ResponseEntity<String> activateSim(@RequestBody SimRequest simRequest){
         SimResponse simResponse = simActivationService.activateSim(simRequest);
         simRequest.setActive(simResponse.isActivated());
         SimRequest simRequest1 = simSaveService.saveSim(simRequest);
@@ -34,7 +32,7 @@ public class SimActivationController {
     }
 
     @GetMapping("/id/{id}")
-    public ResponseEntity<?> getSimStatus(@PathVariable long id){
+    public ResponseEntity<Optional<SimRequest>> getSimStatus(@PathVariable long id){
         Optional<SimRequest> simStatus = simSaveService.getSimStatus(id);
         return new ResponseEntity<>(simStatus , HttpStatus.OK);
     }
