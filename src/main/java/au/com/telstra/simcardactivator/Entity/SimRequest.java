@@ -25,8 +25,10 @@ public class SimRequest {
 
     private boolean active;
 
-    public SimRequest(){
-
+    public SimRequest(String iccid , String customerEmail , boolean active){
+        this.iccid = iccid;
+        this.customerEmail = customerEmail;
+        this.active = active;
     }
 
 }
