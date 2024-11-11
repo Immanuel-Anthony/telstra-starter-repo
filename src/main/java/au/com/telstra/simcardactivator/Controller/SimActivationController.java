@@ -16,11 +16,14 @@ import java.util.Optional;
 @RestController
 public class SimActivationController {
 
-    @Autowired
-    private SimActivationService simActivationService;
+    private final SimActivationService simActivationService;
 
-    @Autowired
-    private SimSaveService simSaveService;
+    private final SimSaveService simSaveService;
+
+    public SimActivationController(SimActivationService simActivationService , SimSaveService simSaveService){
+        this.simActivationService = simActivationService;
+        this.simSaveService = simSaveService;
+    }
 
     @PostMapping("/activate-sim")
     public ResponseEntity<?> activateSim(@RequestBody SimRequest simRequest){
