@@ -27,7 +27,7 @@ public class SimActivationController {
     public ResponseEntity<String> activateSim(@RequestBody SimRequest simRequest){
         SimResponse simResponse = simActivationService.activateSim(simRequest);
         simRequest.setActive(simResponse.isActivated());
-        SimRequest simRequest1 = simSaveService.saveSim(simRequest);
+        simSaveService.saveSim(simRequest);
         return new ResponseEntity<>(simResponse.getSuccess() , HttpStatus.OK);
     }
 
